@@ -6,13 +6,17 @@ public class BankAccount {
     private LocalDate dateOfBirth;
     private int accountNumber;
     private int balance;
+    private String accountType;
+    private int overdraft;
 
-    public BankAccount(String firstName, String lastName, String dateOfBirth){
+    public BankAccount(String firstName, String lastName, int accountNumber, String dateOfBirth, String accountType){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.accountNumber = accountNumber;
         this.dateOfBirth = LocalDate.parse(dateOfBirth);
-        this.accountNumber = 0;
         this.balance = 0;
+        this.accountType = accountType;
+        this.overdraft = 0;
     }
 
     //Getter and Setter
@@ -55,4 +59,28 @@ public class BankAccount {
     public void setBalance(int balance) {
         this.balance = balance;
     }
+
+    public void deposit(int amount){
+        this.balance += amount;
+    }
+
+    //Other methods
+    public void withdrawal(int amount){
+        int check = this.balance - amount;
+        if(check>overdraft){
+            this.balance -= amount;
+        }else{
+            System.out.println("You have reached your overdraft limit");
+        }
+    }
+
+    public void payInterest(){
+        if(this.accountType == "saving"){
+            this.balance += (balance * 2);
+        }
+        if(this.accountType == "current"){
+            this.balance += (balance * 1);
+        }
+    }
+
 }
