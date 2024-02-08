@@ -5,9 +5,9 @@ public class BankAccount {
     private String lastName;
     private LocalDate dateOfBirth;
     private int accountNumber;
-    private int balance;
+    private double balance;
     private String accountType;
-    private int overdraft;
+    private double overdraft;
 
     public BankAccount(String firstName, String lastName, int accountNumber, String dateOfBirth, String accountType){
         this.firstName = firstName;
@@ -52,11 +52,11 @@ public class BankAccount {
         this.accountNumber = accountNumber;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
@@ -65,8 +65,8 @@ public class BankAccount {
     }
 
     //Other methods
-    public void withdrawal(int amount){
-        int check = this.balance - amount;
+    public void withdrawal(double amount){
+        double check = this.balance - amount;
         if(check>overdraft){
             this.balance -= amount;
         }else{

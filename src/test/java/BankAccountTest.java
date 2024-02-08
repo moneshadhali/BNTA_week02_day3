@@ -75,7 +75,7 @@ public class BankAccountTest {
 
     @Test
     public void canGetBalance(){
-        int result = employee.getBalance();
+        double result = employee.getBalance();
         int expected = 0;
         assertThat(result).isEqualTo(expected);
     }
@@ -83,7 +83,7 @@ public class BankAccountTest {
     @Test
     public void canSetBalance(){
         employee.setBalance(55);
-        int result = employee.getBalance();
+        double result = employee.getBalance();
         int expected = 55;
         assertThat(result).isEqualTo(expected);
     }
@@ -91,7 +91,7 @@ public class BankAccountTest {
     @Test
     public void canDeposit(){
         employee.deposit(34);
-        int result = employee.getBalance();
+        double result = employee.getBalance();
         int expected = 34;
         assertThat(result).isEqualTo(expected);
     }
@@ -100,7 +100,7 @@ public class BankAccountTest {
     public void canWithdrawal(){
         employee.deposit(100);
         employee.withdrawal(20);
-        int result = employee.getBalance();
+        double result = employee.getBalance();
         int expected = 80;
         assertThat(result).isEqualTo(expected);
     }
@@ -109,8 +109,8 @@ public class BankAccountTest {
     public void canWithdrawalWithNegBalance(){
         employee.deposit(5);
         employee.withdrawal(20);
-        int result = employee.getBalance();
-        int expected = 5;
+        double result = employee.getBalance();
+        double expected = 5;
         assertThat(result).isEqualTo(expected);
     }
 
@@ -118,7 +118,7 @@ public class BankAccountTest {
     public void canPayInterestSaving(){
         employee.deposit(5);
         employee.payInterest();
-        int result = employee.getBalance();
+        double result = employee.getBalance();
         int expected = 15;
         assertThat(result).isEqualTo(expected);
     }
@@ -128,7 +128,7 @@ public class BankAccountTest {
         employee = new BankAccount("Yin","White", 2,"1997-05-12","current");
         employee.deposit(5);
         employee.payInterest();
-        int result = employee.getBalance();
+        double result = employee.getBalance();
         int expected = 10;
         assertThat(result).isEqualTo(expected);
     }
